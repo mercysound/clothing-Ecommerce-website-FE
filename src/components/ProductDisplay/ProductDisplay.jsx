@@ -11,7 +11,7 @@ const ProductDisplay = (props) => {
 
   return (
     <div className='productdisplay'>
-      <div className="productdiplay-left">
+      <div className="productdisplay-left">
         <div className="productdisplay-img-list">
           <img src={product.image} alt="" />
           <img src={product.image} alt="" />
@@ -50,8 +50,8 @@ const ProductDisplay = (props) => {
         </div>
         </div>
         <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
-        <div className="display-right-category"><span>Category :</span>Women , T-shirt, Crop Top</div>
-        <div className="display-right-category"><span>Tags :</span>Mordern , Latest</div>
+        <div className="productdisplay-right-category"><span>Category :</span>Women , T-shirt, Crop Top</div>
+        <div className="productdisplay-right-category"><span>Tags :</span>Mordern , Latest</div>
       </div>
     </div>
   )

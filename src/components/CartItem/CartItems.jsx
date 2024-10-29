@@ -16,7 +16,6 @@ const CartItems = () => {
       <p>Remove</p>
       </div>
       <hr />
-      {console.log(cartItem)}
       {all_product.map((e)=>{
         if(cartItem[e.id]>0){
           return<div className="cartitems-format cartitems-format-main">
