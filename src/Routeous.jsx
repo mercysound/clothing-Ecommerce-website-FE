@@ -1,4 +1,4 @@
-import React from 'react'
+zimport React from 'react'
 import { useParams } from 'react-router-dom'
 const Routeous = () => {
   let myparams = useParams()
