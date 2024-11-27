@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 // import React, { useEffect, useState } from 'react'
 import './NewCollections.css'
 import new_collection from '../Assets/new_collections' // fetching from fe
 import Item from '../Item/Item'
+import { ShopContext } from '../../Context/ShopContext';
 
 const NewCollections = () => {
+  const {targetRef} = useContext(ShopContext);
   // for sake of fetching from api
   // const [new_collection, setNew_collection] = useState([])
   // useEffect(()=>{
@@ -15,7 +17,7 @@ const NewCollections = () => {
   // },
   // [])
   return (
-    <div className='new-collections'>
+    <div className='new-collections' ref={targetRef}>
       <h1>NEW COLLECTION</h1>
       <hr />
       <div className="collections">

@@ -80,7 +80,7 @@ background: #252525;
   .collections{
     display: grid;
     grid-template-columns: 1fr 1fr; 
-    gap: 20px;
+    /* gap: 20px; */
   }
 }
 

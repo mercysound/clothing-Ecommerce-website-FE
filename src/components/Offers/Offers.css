@@ -115,6 +115,11 @@
 }
 @media(max-width:500px){
   .offers{
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    background: #353030;
+    background: red;
     /* height: 25vh; */
     margin-bottom: 50px;
   }

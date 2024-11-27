@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useRef, useState } from "react";
 import all_product from '../components/Assets/all_product'
 
 export const ShopContext = createContext(null);
@@ -100,7 +100,13 @@ const ShopContextProvider = (props)=>{
     return totalItem
   }
 
-  const contextValue = {getTotalCartItems, getTotalCartAmount, all_product, cartItem, addToCart, removeFromCart}
+  //method for latest collec btn scroll
+    const targetRef = useRef(null)
+    const scrollToTarget = ()=>{
+        targetRef.current.scrollIntoView({behaviour:"smooth"})
+    }
+
+  const contextValue = {getTotalCartItems, getTotalCartAmount, all_product, cartItem, addToCart, removeFromCart, scrollToTarget, targetRef}
 
   return(
     <ShopContext.Provider value={contextValue}>  

@@ -4,7 +4,7 @@
   gap: 8px;
   margin: 60px 170px;
   color: #5e5e5e;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 500;
   text-transform: capitalize;
 }
@@ -28,6 +28,13 @@
 }
 @media(max-width:500px){
   .breadcrum{
-    font-size: 10 px;
+    font-size: 8px;
+    gap: 2px;
+  }
+  .breadcrum p{
+    /* font-size: 8px; */
+    padding: 0;
+    margin: 0;
+    line-height: 7px;
   }
 }

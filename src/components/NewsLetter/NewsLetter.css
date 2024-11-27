@@ -1,5 +1,6 @@
 .newsletter{
-  width: 65%;
+  /* width: 20%; */
+  /* width: 100%; */
   /* height: 40vh; */
   height: 50vh;
   display: flex;
@@ -140,8 +141,10 @@
 }
 @media(max-width:500px){
   .newsletter{
-    height: 25vh;
-    width: 100%;
+    /* height: 25vh; */
+    /* width: 100%; */
+    background: #353030;
+    padding: 0px 0px;
     gap: 15px;
   }
   .newsletter h1{
@@ -153,7 +156,12 @@
     text-align: center;
   }
   .newsletter div{
-    width: 290px;
+    width: 250px;
+  }
+  /* integrate self*/
+  .newsletter div button{
+    background: #bed0d1;
+    border: #bed0d1;
   }
   .newsletter div input{
     width: 130px;

@@ -101,6 +101,10 @@
   }
 }
 @media(max-width:800px){
+  .loginsignup{
+    height: 90vh;
+    padding: 0;
+  }
   .loginsignup-container{
     padding: 20px 30px;
   }

@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Hero.css'
 import hand_icon from '../Assets/hand_icon.png'
 import arrow_icon from "../Assets/arrow.png"
 import hero_image from "../Assets/hero_image.png"
+import { ShopContext } from '../../Context/ShopContext'
 
 export const Hero = () => {
+  const {scrollToTarget} = useContext(ShopContext);
   return (
     <div className='hero'>
       <div className="hero-left">
@@ -18,7 +20,7 @@ export const Hero = () => {
           <p>for everyone</p>
         </div>
         <div className="hero-latest-btn">
-          <div>Latest Collection</div>
+          <div onClick={scrollToTarget}>Latest Collection</div>
           <img src={arrow_icon} alt="" />
         </div>
       </div>

@@ -4,6 +4,7 @@
 }
 .productdisplay-left{
   display: flex;
+  /* align-items: center; */
   gap: 17px;
 }
 .productdisplay-img-list{
@@ -88,7 +89,7 @@
 .productdisplay-right-category span{
   font-weight: 600;
 }
-@media(max-width:1280px){
+ @media(max-width:1280px){
   .productdisplay{
     margin: 0px 60px;
   }
@@ -208,7 +209,7 @@
     width: 13px;
   }
   .productdisplay-right-description{
-    font-size: 10px;
+    font-size: 12px;
   }
   .productdisplay-right-size h1{
     margin-top: 10px;
@@ -225,27 +226,37 @@
     padding: 12px;
   }
   .productdisplay-right-category{
-    font-size: 10px;
+    font-size: 12px;
   }
-}  
+}
 @media(max-width:500px){
   .productdisplay{
     flex-direction: column;
   }
   .productdisplay-left{
+    width: 100%;
     gap: 10px;
     flex-direction: row;
-    margin: auto;
+    /* margin: auto; */
+    justify-content: center;
+    /* align-items: center; */
+    /* background: red; */
+    /* height: 70vh; */
+    
   }
   .productdisplay-img-list{
     flex-direction: column;
     gap: 8px;
   }
   .productdisplay-img-list img{
-    height: 75px;
+    /* height: 75px; */
+    width: 60px; 
+    height: 74px;
   }
   .productdisplay-main-img{
-    height: 330px;
+    display: flex;
+    width: 210px; /* Optional: Adjust the size of the main image */
+    height: 320px;
   }
   .productdisplay-right{
     margin: 5px;
@@ -263,7 +274,7 @@
     gap: 10px;
   }
   .productdisplay-right-sizes div{
-    padding: 10px 16px;
+    padding: 8px 11px;
     font-size: 14px;
   }
   .productdisplay-right button{
