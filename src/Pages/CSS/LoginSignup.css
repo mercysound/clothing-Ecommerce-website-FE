@@ -102,7 +102,7 @@
 }
 @media(max-width:800px){
   .loginsignup{
-    height: 90vh;
+    height: 70vh;
     padding: 0;
   }
   .loginsignup-container{

@@ -4,7 +4,7 @@
   display: flex;
   margin: auto;
   padding: 0px 140px;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
   /* background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%); */
   background: linear-gradient(180deg,  #24456bb6, #210722b6 80%);
   /* background: red; */
@@ -119,8 +119,6 @@
     margin: 0 auto;
     padding: 10px;
     background: #353030;
-    background: red;
-    /* height: 25vh; */
     margin-bottom: 50px;
   }
   .offers-left h1{
