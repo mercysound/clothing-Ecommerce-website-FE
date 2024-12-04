@@ -1,81 +1,80 @@
-import React, { createContext, useRef, useState } from "react";
-import all_product from '../components/Assets/all_product'
+import React, { createContext, useRef, useState,  useEffect} from "react";
+// import all_product from '../components/Assets/all_product' //for sake of fetching from fe
 
 export const ShopContext = createContext(null);
 
 const getDefaultCart = () =>{
   let cart = {}
-  // for (let index = 0; index < 300+1; index++) { // for sake of fetching from api
-  for (let index = 0; index < all_product.length; index++) { // for sake of fetching from fe
+  for (let index = 0; index < 300+1; index++) { // for sake of fetching from api
+  // for (let index = 0; index < all_product.length; index++) { // for sake of fetching from fe
     cart[index] = 0;
   }
   return cart
 }
 const ShopContextProvider = (props)=>{
 
-  // const [all_product, setAll_product] = useState([]) // for sake of fetching from api
-  // const [cartItem, setcartItem] = useState(getDefaultCart()); // for sake of fetching from api
+  const [all_product, setAll_product] = useState([]) // for sake of fetching from api
   const [cartItem, setcartItem] = useState(getDefaultCart()); // for sake of fetching from api
 
-  // useEffect(() => {
-  //   fetch('http://localhost:4000/allproducts')
-  //   .then((resp)=>resp.json())
-  //   .then((data)=>{
-  //     setAll_product(data)
-  //     console.log(data);
-  //   })
-  //   // .catch((error) => {
-  //   //   console.error('Error:', error);
-  //   // })
-  //   if(localStorage.getItem('auth-token')){
-  //     fetch('http://localhost:4000/getcart',{
-  //         method:'POST',
-  //         headers:{
-  //           Accept:'application/form-data',
-  //           'auth-token':`${localStorage.getItem('auth-token')}`,
-  //           'Content-Type':'application/json'
-  //         },
-  //         body:""
-  //     })
-  //     .then((resp)=>resp.json())
-  //     .then((data)=>setcartItem(data))
-  //   }
-  // },[]);
+  useEffect(() => {
+    fetch('http://localhost:4000/allproducts')
+    .then((resp)=>resp.json())
+    .then((data)=>{
+      setAll_product(data)
+      console.log(data);
+    })
+    // .catch((error) => {
+    //   console.error('Error:', error);
+    // })
+    if(localStorage.getItem('auth-token')){
+      fetch('http://localhost:4000/getcart',{
+          method:'POST',
+          headers:{
+            Accept:'application/form-data',
+            'auth-token':`${localStorage.getItem('auth-token')}`,
+            'Content-Type':'application/json'
+          },
+          body:""
+      })
+      .then((resp)=>resp.json())
+      .then((data)=>setcartItem(data))
+    }
+  },[]);
   
   
   const addToCart = (itemId)=>{
     setcartItem((prev)=>({...prev, [itemId]:prev[itemId]+1}))
-    // if(localStorage.getItem('auth-token')){
-    //   fetch('http://localhost:4000/addtocart',{
-    //     method:'POST',
-    //     headers:{
-    //       Accept:'application/form-data',
-    //       'auth-token':`${localStorage.getItem('auth-token')}`,
-    //       'Content-Type':'application/json',
-    //     },
-    //     body:JSON.stringify({"itemId":itemId})
-    //   })
-    //   .then((resp)=>resp.json())
-    //   .then((data)=>console.log(data)
-    //   )
-    // }
+    if(localStorage.getItem('auth-token')){  //for sake of fetching from api
+      fetch('http://localhost:4000/addtocart',{
+        method:'POST',
+        headers:{
+          Accept:'application/form-data',
+          'auth-token':`${localStorage.getItem('auth-token')}`,
+          'Content-Type':'application/json',
+        },
+        body:JSON.stringify({"itemId":itemId})
+      })
+      .then((resp)=>resp.json())
+      .then((data)=>console.log(data)
+      )
+    }
   }
   const removeFromCart = (itemId)=>{
     setcartItem((prev)=>({...prev, [itemId]:prev[itemId]-1}))
-    // if(localStorage.getItem('auth-token')){
-    //   fetch('http://localhost:4000/removefromcart ',{
-    //     method:'POST',
-    //     headers:{
-    //       Accept:'application/form-data',
-    //       'auth-token':`${localStorage.getItem('auth-token')}`,
-    //       'Content-Type':'application/json',
-    //     },
-    //     body:JSON.stringify({"itemId":itemId})
-    //   })
-    //   .then((resp)=>resp.json())
-    //   .then((data)=>console.log(data)
-    //   ) 
-    // }
+    if(localStorage.getItem('auth-token')){ //for sake of fetching from api
+      fetch('http://localhost:4000/removefromcart ',{
+        method:'POST',
+        headers:{
+          Accept:'application/form-data',
+          'auth-token':`${localStorage.getItem('auth-token')}`,
+          'Content-Type':'application/json',
+        },
+        body:JSON.stringify({"itemId":itemId})
+      })
+      .then((resp)=>resp.json())
+      .then((data)=>console.log(data)
+      ) 
+    }
   }
 
   const getTotalCartAmount= () =>{
@@ -100,7 +99,7 @@ const ShopContextProvider = (props)=>{
     return totalItem
   }
 
-  //method for latest collec btn scroll
+  //method for latest collec btn in hero section jump scroll
     const targetRef = useRef(null)
     const scrollToTarget = ()=>{
         targetRef.current.scrollIntoView({behaviour:"smooth"})
